@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this material, please cite the papers below."
+title: "thrust-vectoring-hysteresis"
+authors:
+  - family-names: Odukoya
+    given-names: Oluwadara
+license: MIT
+references:
+  - type: conference-paper
+    authors:
+      - family-names: Odukoya
+        given-names: O.
+    title: "Design and System Integration for Experimental Testing of Electric Ducted Fans (EDFs)"
+    doi: 10.2514/6.2026-4745
+    publisher:
+      name: AIAA
+  - type: conference-paper
+    authors:
+      - family-names: Odukoya
+        given-names: O.
+    title: "Experimental Investigation and Performance Evaluation of an Electric Ducted Fan (EDF) for Distributed Propulsion Systems"
+    doi: 10.2514/6.2026-4746
+    publisher:
+      name: AIAA
+  - type: conference-paper
+    authors:
+      - family-names: Odukoya
+        given-names: O.
+    title: "Multi-Axis Experimental Characterization and Nonlinear System Identification of a Thrust-Vectoring Electric Ducted Fan for Autonomous VTOL Transition Control"
+    conference:
+      name: "AIAA SciTech Forum 2027 (forthcoming, 11-15 January 2027)"
