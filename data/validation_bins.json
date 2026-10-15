@@ -1,0 +1,545 @@
+{
+  "description": "Grouped measured-versus-predicted force statistics. No individual dwells, time series, position-indexed map or fitted parameters are included.",
+  "bin_count": 16,
+  "bin_rule": "Start with 16 equal-width measured-force bins; merge adjacent sparse bins to retain at least five dwells in every published group. Group each force component and validation direction separately.",
+  "residual_definition": "Predicted minus measured force, in newtons.",
+  "interval_definition": "10th to 90th percentiles of observed residuals within a bin; not confidence intervals.",
+  "conditions": "The map is fitted on one session and tested on the other, using measured flap position, rotor speed and session-specific horizontal force scale correction. This is not a calibration-free transfer test or an absolute accuracy guarantee.",
+  "splits": {
+    "S2_to_S3": {
+      "n_dwells": 313,
+      "components": {
+        "axial": {
+          "rmse_N": 0.16082559250628134,
+          "bins": [
+            {
+              "n_dwells": 171,
+              "mean_measured_N": 0.6045806264669714,
+              "mean_predicted_N": 0.5656141422527731,
+              "mean_residual_N": -0.03896648421419839,
+              "residual_p10_N": -0.15713926964524416,
+              "residual_p90_N": 0.06598097713887008,
+              "squared_error_sum_N2": 1.7674354510013361
+            },
+            {
+              "n_dwells": 33,
+              "mean_measured_N": 1.4994672991671114,
+              "mean_predicted_N": 1.4518570800451376,
+              "mean_residual_N": -0.04761021912197358,
+              "residual_p10_N": -0.1760465749568949,
+              "residual_p90_N": 0.06983160602300634,
+              "squared_error_sum_N2": 0.5657946362013132
+            },
+            {
+              "n_dwells": 30,
+              "mean_measured_N": 2.5067203864636145,
+              "mean_predicted_N": 2.5193389278230436,
+              "mean_residual_N": 0.012618541359428696,
+              "residual_p10_N": -0.1288807475926969,
+              "residual_p90_N": 0.17323613340091765,
+              "squared_error_sum_N2": 0.4888107975176997
+            },
+            {
+              "n_dwells": 23,
+              "mean_measured_N": 3.3647196350179196,
+              "mean_predicted_N": 3.29543519921356,
+              "mean_residual_N": -0.0692844358043589,
+              "residual_p10_N": -0.237345617316506,
+              "residual_p90_N": 0.1249610633954939,
+              "squared_error_sum_N2": 0.5830374523163351
+            },
+            {
+              "n_dwells": 17,
+              "mean_measured_N": 4.299525163663653,
+              "mean_predicted_N": 4.277946229569416,
+              "mean_residual_N": -0.021578934094238878,
+              "residual_p10_N": -0.23197222953415278,
+              "residual_p90_N": 0.15721788989520588,
+              "squared_error_sum_N2": 0.4712018002388625
+            },
+            {
+              "n_dwells": 11,
+              "mean_measured_N": 5.200048521329283,
+              "mean_predicted_N": 5.33819379423608,
+              "mean_residual_N": 0.138145272906797,
+              "residual_p10_N": -0.07076751834327233,
+              "residual_p90_N": 0.2478489808450437,
+              "squared_error_sum_N2": 0.4999152227913836
+            },
+            {
+              "n_dwells": 11,
+              "mean_measured_N": 6.967722098495401,
+              "mean_predicted_N": 7.013443990938106,
+              "mean_residual_N": 0.04572189244270594,
+              "residual_p10_N": -0.21393756811543962,
+              "residual_p90_N": 0.16709499725565014,
+              "squared_error_sum_N2": 0.3907359351444886
+            },
+            {
+              "n_dwells": 8,
+              "mean_measured_N": 10.203132173855943,
+              "mean_predicted_N": 9.955036809719733,
+              "mean_residual_N": -0.2480953641362108,
+              "residual_p10_N": -0.37441818097007556,
+              "residual_p90_N": -0.04807501577875596,
+              "squared_error_sum_N2": 0.6641067805750831
+            },
+            {
+              "n_dwells": 9,
+              "mean_measured_N": 12.960008293506188,
+              "mean_predicted_N": 12.451687464516628,
+              "mean_residual_N": -0.508320828989564,
+              "residual_p10_N": -0.6893807408387677,
+              "residual_p90_N": -0.3777223452601315,
+              "squared_error_sum_N2": 2.6646666113773914
+            }
+          ]
+        },
+        "vertical": {
+          "rmse_N": 0.1640355996059912,
+          "bins": [
+            {
+              "n_dwells": 35,
+              "mean_measured_N": 0.17240195734696137,
+              "mean_predicted_N": 0.20594027079911648,
+              "mean_residual_N": 0.03353831345215507,
+              "residual_p10_N": -0.08161740528767238,
+              "residual_p90_N": 0.18068932190316564,
+              "squared_error_sum_N2": 0.43445132447809626
+            },
+            {
+              "n_dwells": 12,
+              "mean_measured_N": 0.9977060752843648,
+              "mean_predicted_N": 0.9828216302084619,
+              "mean_residual_N": -0.014884445075902725,
+              "residual_p10_N": -0.13555127532908803,
+              "residual_p90_N": 0.10664364452295645,
+              "squared_error_sum_N2": 0.10698314034635131
+            },
+            {
+              "n_dwells": 10,
+              "mean_measured_N": 1.894426488380041,
+              "mean_predicted_N": 2.0295439732820375,
+              "mean_residual_N": 0.13511748490199618,
+              "residual_p10_N": 0.06855703057695531,
+              "residual_p90_N": 0.21145358739207704,
+              "squared_error_sum_N2": 0.21958311735817637
+            },
+            {
+              "n_dwells": 14,
+              "mean_measured_N": 2.6732234712330913,
+              "mean_predicted_N": 2.878726201108702,
+              "mean_residual_N": 0.20550272987561105,
+              "residual_p10_N": 0.10472817495984947,
+              "residual_p90_N": 0.28733234376269895,
+              "squared_error_sum_N2": 0.6698539865801927
+            },
+            {
+              "n_dwells": 14,
+              "mean_measured_N": 3.553930048859686,
+              "mean_predicted_N": 3.7525752413842786,
+              "mean_residual_N": 0.19864519252459295,
+              "residual_p10_N": 0.11549945985079155,
+              "residual_p90_N": 0.3403713198016163,
+              "squared_error_sum_N2": 0.6661842444990103
+            },
+            {
+              "n_dwells": 21,
+              "mean_measured_N": 4.48174926375753,
+              "mean_predicted_N": 4.6688249157337856,
+              "mean_residual_N": 0.1870756519762542,
+              "residual_p10_N": 0.07147488603026186,
+              "residual_p90_N": 0.3244211693414636,
+              "squared_error_sum_N2": 0.971263021325339
+            },
+            {
+              "n_dwells": 35,
+              "mean_measured_N": 5.149697417262973,
+              "mean_predicted_N": 5.2835815296892585,
+              "mean_residual_N": 0.133884112426284,
+              "residual_p10_N": -0.11922525265118418,
+              "residual_p90_N": 0.27409500735880155,
+              "squared_error_sum_N2": 1.4416788921590418
+            },
+            {
+              "n_dwells": 15,
+              "mean_measured_N": 5.9833627531240685,
+              "mean_predicted_N": 6.100026566485451,
+              "mean_residual_N": 0.11666381336138093,
+              "residual_p10_N": -0.0713609979405735,
+              "residual_p90_N": 0.2966663653233825,
+              "squared_error_sum_N2": 0.5838809379486614
+            },
+            {
+              "n_dwells": 26,
+              "mean_measured_N": 6.749387659742417,
+              "mean_predicted_N": 6.834493028639643,
+              "mean_residual_N": 0.08510536889722592,
+              "residual_p10_N": -0.05820432353080651,
+              "residual_p90_N": 0.23916934950083935,
+              "squared_error_sum_N2": 0.5674207822954098
+            },
+            {
+              "n_dwells": 12,
+              "mean_measured_N": 7.745494545737888,
+              "mean_predicted_N": 7.67742471069938,
+              "mean_residual_N": -0.06806983503851027,
+              "residual_p10_N": -0.21945586318272586,
+              "residual_p90_N": 0.13658889314748596,
+              "squared_error_sum_N2": 0.2794225231938773
+            },
+            {
+              "n_dwells": 15,
+              "mean_measured_N": 8.427547288645858,
+              "mean_predicted_N": 8.505819756355452,
+              "mean_residual_N": 0.07827246770959397,
+              "residual_p10_N": -0.043277351515185455,
+              "residual_p90_N": 0.28780127144277856,
+              "squared_error_sum_N2": 0.3493959149260444
+            },
+            {
+              "n_dwells": 9,
+              "mean_measured_N": 9.475408305992254,
+              "mean_predicted_N": 9.525755592093574,
+              "mean_residual_N": 0.05034728610132117,
+              "residual_p10_N": -0.08096494011114252,
+              "residual_p90_N": 0.22695124496762667,
+              "squared_error_sum_N2": 0.15356956727222293
+            },
+            {
+              "n_dwells": 32,
+              "mean_measured_N": 10.202857501450303,
+              "mean_predicted_N": 10.275349439098024,
+              "mean_residual_N": 0.07249193764771983,
+              "residual_p10_N": -0.05996351204889834,
+              "residual_p90_N": 0.25274516537553465,
+              "squared_error_sum_N2": 0.7025375707786136
+            },
+            {
+              "n_dwells": 7,
+              "mean_measured_N": 11.005169107704324,
+              "mean_predicted_N": 11.130235418985631,
+              "mean_residual_N": 0.12506631128130405,
+              "residual_p10_N": 0.035415209354791345,
+              "residual_p90_N": 0.2282125282239552,
+              "squared_error_sum_N2": 0.17176650586968856
+            },
+            {
+              "n_dwells": 12,
+              "mean_measured_N": 11.740906250512644,
+              "mean_predicted_N": 11.719834179286616,
+              "mean_residual_N": -0.02107207122602987,
+              "residual_p10_N": -0.2619819166911029,
+              "residual_p90_N": 0.12974059269647037,
+              "squared_error_sum_N2": 0.25821034121009967
+            },
+            {
+              "n_dwells": 44,
+              "mean_measured_N": 12.8004592552523,
+              "mean_predicted_N": 12.848828785777812,
+              "mean_residual_N": 0.048369530525507916,
+              "residual_p10_N": -0.11865300021395342,
+              "residual_p90_N": 0.2557009546548326,
+              "squared_error_sum_N2": 0.8459013243835545
+            }
+          ]
+        }
+      }
+    },
+    "S3_to_S2": {
+      "n_dwells": 349,
+      "components": {
+        "axial": {
+          "rmse_N": 0.1835514056187019,
+          "bins": [
+            {
+              "n_dwells": 154,
+              "mean_measured_N": 0.6576628202532172,
+              "mean_predicted_N": 0.7015376008309054,
+              "mean_residual_N": 0.043874780577688295,
+              "residual_p10_N": -0.07968118365028022,
+              "residual_p90_N": 0.19233566408036112,
+              "squared_error_sum_N2": 2.200820277538897
+            },
+            {
+              "n_dwells": 32,
+              "mean_measured_N": 1.6716544465435699,
+              "mean_predicted_N": 1.7003150122805646,
+              "mean_residual_N": 0.02866056573699472,
+              "residual_p10_N": -0.1118221197981401,
+              "residual_p90_N": 0.2503848359415107,
+              "squared_error_sum_N2": 0.8221450049716058
+            },
+            {
+              "n_dwells": 24,
+              "mean_measured_N": 2.5561612567869507,
+              "mean_predicted_N": 2.551651463724252,
+              "mean_residual_N": -0.004509793062698997,
+              "residual_p10_N": -0.14891957036436748,
+              "residual_p90_N": 0.09517309145231388,
+              "squared_error_sum_N2": 0.6401608111024826
+            },
+            {
+              "n_dwells": 32,
+              "mean_measured_N": 3.451161576900592,
+              "mean_predicted_N": 3.502730961731338,
+              "mean_residual_N": 0.05156938483074604,
+              "residual_p10_N": -0.09320346010097129,
+              "residual_p90_N": 0.231035112354686,
+              "squared_error_sum_N2": 0.6966066431723972
+            },
+            {
+              "n_dwells": 30,
+              "mean_measured_N": 4.321690175499689,
+              "mean_predicted_N": 4.378072557511356,
+              "mean_residual_N": 0.05638238201166641,
+              "residual_p10_N": -0.2375150701846561,
+              "residual_p90_N": 0.1839411895805083,
+              "squared_error_sum_N2": 0.9468440537951847
+            },
+            {
+              "n_dwells": 16,
+              "mean_measured_N": 5.1988016012582134,
+              "mean_predicted_N": 5.225777039385587,
+              "mean_residual_N": 0.026975438127374685,
+              "residual_p10_N": -0.11839825592737707,
+              "residual_p90_N": 0.1444418987066931,
+              "squared_error_sum_N2": 0.17617922393667834
+            },
+            {
+              "n_dwells": 15,
+              "mean_measured_N": 6.187132670649527,
+              "mean_predicted_N": 6.352340957830082,
+              "mean_residual_N": 0.16520828718055422,
+              "residual_p10_N": -0.11068347757688651,
+              "residual_p90_N": 0.4134957920248327,
+              "squared_error_sum_N2": 1.0672830009542467
+            },
+            {
+              "n_dwells": 7,
+              "mean_measured_N": 6.901141218004447,
+              "mean_predicted_N": 7.017199453116275,
+              "mean_residual_N": 0.11605823511182857,
+              "residual_p10_N": -0.05208559699828309,
+              "residual_p90_N": 0.27072854587555395,
+              "squared_error_sum_N2": 0.2393547250843593
+            },
+            {
+              "n_dwells": 5,
+              "mean_measured_N": 7.859393312280702,
+              "mean_predicted_N": 8.22885289200148,
+              "mean_residual_N": 0.3694595797207798,
+              "residual_p10_N": 0.2821528339298343,
+              "residual_p90_N": 0.4716939075905622,
+              "squared_error_sum_N2": 0.7241890021731765
+            },
+            {
+              "n_dwells": 6,
+              "mean_measured_N": 9.101888474737981,
+              "mean_predicted_N": 9.095784857159527,
+              "mean_residual_N": -0.006103617578454272,
+              "residual_p10_N": -0.17947070670372067,
+              "residual_p90_N": 0.22032193662492983,
+              "squared_error_sum_N2": 0.2174582484013573
+            },
+            {
+              "n_dwells": 6,
+              "mean_measured_N": 11.048242321428573,
+              "mean_predicted_N": 11.059197618535931,
+              "mean_residual_N": 0.010955297107359208,
+              "residual_p10_N": -0.23695386251091843,
+              "residual_p90_N": 0.2126667744481301,
+              "squared_error_sum_N2": 0.29017285363886836
+            },
+            {
+              "n_dwells": 5,
+              "mean_measured_N": 12.357169921895649,
+              "mean_predicted_N": 12.113329665683082,
+              "mean_residual_N": -0.24384025621256705,
+              "residual_p10_N": -0.38640035630815495,
+              "residual_p90_N": -0.05664087927488699,
+              "squared_error_sum_N2": 0.4167043547809228
+            },
+            {
+              "n_dwells": 7,
+              "mean_measured_N": 13.279880045142692,
+              "mean_predicted_N": 13.117388338920174,
+              "mean_residual_N": -0.16249170622251974,
+              "residual_p10_N": -0.36528754398989277,
+              "residual_p90_N": 0.06714550595942978,
+              "squared_error_sum_N2": 0.3945220749535892
+            },
+            {
+              "n_dwells": 10,
+              "mean_measured_N": 14.290904220933005,
+              "mean_predicted_N": 13.813101046079316,
+              "mean_residual_N": -0.47780317485368473,
+              "residual_p10_N": -0.6833823122949421,
+              "residual_p90_N": -0.0870862477416456,
+              "squared_error_sum_N2": 2.9257600836020607
+            }
+          ]
+        },
+        "vertical": {
+          "rmse_N": 0.20267702585258213,
+          "bins": [
+            {
+              "n_dwells": 43,
+              "mean_measured_N": 0.15541473112418788,
+              "mean_predicted_N": 0.11295749238201097,
+              "mean_residual_N": -0.042457238742176905,
+              "residual_p10_N": -0.21013351750407896,
+              "residual_p90_N": 0.11230040556316992,
+              "squared_error_sum_N2": 0.6128807490766615
+            },
+            {
+              "n_dwells": 17,
+              "mean_measured_N": 0.866524778885717,
+              "mean_predicted_N": 0.7309415918159962,
+              "mean_residual_N": -0.13558318706972075,
+              "residual_p10_N": -0.34741310163206796,
+              "residual_p90_N": 0.015583430186104431,
+              "squared_error_sum_N2": 0.6536579243473132
+            },
+            {
+              "n_dwells": 9,
+              "mean_measured_N": 1.7676335451240714,
+              "mean_predicted_N": 1.7037177125150347,
+              "mean_residual_N": -0.06391583260903677,
+              "residual_p10_N": -0.14996647690310203,
+              "residual_p90_N": 0.008633555802604193,
+              "squared_error_sum_N2": 0.07330000053699687
+            },
+            {
+              "n_dwells": 12,
+              "mean_measured_N": 2.5691032577316384,
+              "mean_predicted_N": 2.5211728996518996,
+              "mean_residual_N": -0.04793035807973859,
+              "residual_p10_N": -0.18688817988350995,
+              "residual_p90_N": 0.04120925549535737,
+              "squared_error_sum_N2": 0.12916932009710233
+            },
+            {
+              "n_dwells": 16,
+              "mean_measured_N": 3.4585283453135,
+              "mean_predicted_N": 3.453905152720455,
+              "mean_residual_N": -0.004623192593044834,
+              "residual_p10_N": -0.1542391440196036,
+              "residual_p90_N": 0.11088366973498553,
+              "squared_error_sum_N2": 0.19848930310048377
+            },
+            {
+              "n_dwells": 13,
+              "mean_measured_N": 4.252460097418101,
+              "mean_predicted_N": 4.287763273713609,
+              "mean_residual_N": 0.035303176295507596,
+              "residual_p10_N": -0.1813724820824651,
+              "residual_p90_N": 0.15313920740399958,
+              "squared_error_sum_N2": 0.2722429527001338
+            },
+            {
+              "n_dwells": 15,
+              "mean_measured_N": 5.048492250538934,
+              "mean_predicted_N": 5.039402527108767,
+              "mean_residual_N": -0.009089723430166488,
+              "residual_p10_N": -0.2141875663140153,
+              "residual_p90_N": 0.1187121697339151,
+              "squared_error_sum_N2": 0.2813042601196453
+            },
+            {
+              "n_dwells": 23,
+              "mean_measured_N": 5.894807231022265,
+              "mean_predicted_N": 5.820880894731359,
+              "mean_residual_N": -0.07392633629090446,
+              "residual_p10_N": -0.21873549673364287,
+              "residual_p90_N": 0.11828190206382719,
+              "squared_error_sum_N2": 0.9777544013436619
+            },
+            {
+              "n_dwells": 26,
+              "mean_measured_N": 6.681696069482384,
+              "mean_predicted_N": 6.662798911517154,
+              "mean_residual_N": -0.018897157965228874,
+              "residual_p10_N": -0.12835452835132477,
+              "residual_p90_N": 0.10467379801999543,
+              "squared_error_sum_N2": 0.3354367485804018
+            },
+            {
+              "n_dwells": 21,
+              "mean_measured_N": 7.478382565169167,
+              "mean_predicted_N": 7.289259188740509,
+              "mean_residual_N": -0.1891233764286559,
+              "residual_p10_N": -0.4197083727575057,
+              "residual_p90_N": 0.01986108628302663,
+              "squared_error_sum_N2": 1.4393783224119188
+            },
+            {
+              "n_dwells": 21,
+              "mean_measured_N": 8.091881757319538,
+              "mean_predicted_N": 7.943363017640477,
+              "mean_residual_N": -0.14851873967905932,
+              "residual_p10_N": -0.3876766543242889,
+              "residual_p90_N": 0.06083912383201717,
+              "squared_error_sum_N2": 1.0546128534667225
+            },
+            {
+              "n_dwells": 11,
+              "mean_measured_N": 9.046508388837106,
+              "mean_predicted_N": 8.806826806258552,
+              "mean_residual_N": -0.23968158257855376,
+              "residual_p10_N": -0.46075609440049803,
+              "residual_p90_N": -0.11795700752822569,
+              "squared_error_sum_N2": 0.8316865027283696
+            },
+            {
+              "n_dwells": 22,
+              "mean_measured_N": 9.977204039126635,
+              "mean_predicted_N": 9.782967556793011,
+              "mean_residual_N": -0.19423648233362378,
+              "residual_p10_N": -0.34318769057952336,
+              "residual_p90_N": -0.023191559408577426,
+              "squared_error_sum_N2": 1.2034763987937707
+            },
+            {
+              "n_dwells": 10,
+              "mean_measured_N": 10.836803176261293,
+              "mean_predicted_N": 10.525062656931892,
+              "mean_residual_N": -0.3117405193293994,
+              "residual_p10_N": -0.42179256421853334,
+              "residual_p90_N": -0.1671663284818934,
+              "squared_error_sum_N2": 1.097328798133855
+            },
+            {
+              "n_dwells": 19,
+              "mean_measured_N": 11.595131053456415,
+              "mean_predicted_N": 11.377493760543564,
+              "mean_residual_N": -0.21763729291285192,
+              "residual_p10_N": -0.42995838184378776,
+              "residual_p90_N": -0.007396101476888016,
+              "squared_error_sum_N2": 1.48722468572288
+            },
+            {
+              "n_dwells": 71,
+              "mean_measured_N": 12.377744331070689,
+              "mean_predicted_N": 12.19606423217319,
+              "mean_residual_N": -0.18168009889750086,
+              "residual_p10_N": -0.35822606781725774,
+              "residual_p90_N": 0.002185027666593342,
+              "squared_error_sum_N2": 3.6882706849885176
+            }
+          ]
+        }
+      }
+    }
+  },
+  "source_files": {
+    "ch4_aero_map.json": {
+      "path": "calculations/thesis_pipeline/results/ch4/ch4_aero_map.json",
+      "sha256": "bb45bbe4ba4c2c0c6ca1d9abbb20b5131d7ea82c92b7eaa53abb018b1667957c"
+    },
+    "ch4_datasets.json": {
+      "path": "calculations/thesis_pipeline/results/ch4/ch4_datasets.json",
+      "sha256": "c7a1479aab4e0ff01fb7d391c7d53e29dc375c56ed04388b27b58fbf5d28b988"
+    }
+  }
+}

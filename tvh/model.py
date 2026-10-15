@@ -3,7 +3,8 @@
 Written for this repository from the published idea (Goman & Khrabrov, 1994),
 not copied from the thesis code. Every parameter here is ILLUSTRATIVE: the
 branch curves only echo the shape of the published bench figure, and none of
-them is measured data.
+them is measured data. This demonstration does not establish the cause of the
+original bench observation and is not the current Chapter 4 measured-position map.
 
 State x in [0, 1]: 1 = jet attached (axial, forward flight),
                    0 = jet separated onto the flap (vertical, VTOL).

@@ -1,13 +1,9 @@
-import json
-from pathlib import Path
-
 import numpy as np
 
 from tvh import GKParams, eta_v, simulate
 from tvh.model import sweep
 
 P = GKParams()
-ROOT = Path(__file__).resolve().parents[1]
 
 
 def _hold(theta, x_init, seconds=2.0, dt=0.005):
@@ -51,14 +47,6 @@ def test_eta_bounds():
     for x in (0.0, 0.5, 1.0):
         e = eta_v(th, x)
         assert np.all(e >= 0) and np.all(e <= 1)
-
-
-def test_hover_yaw_data_matches_thesis_results():
-    d = json.loads((ROOT / "data" / "hover_yaw.json").read_text())
-    g, f, r = d["conditions"]["landing_gate"], d["conditions"]["full_pack"], d["requirements"]
-    assert (g["motors_only_floor"], g["flight_design"], g["after_bench_v2"]) == (0.840, 1.011, 1.447)
-    assert (f["motors_only_floor"], f["flight_design"], f["after_bench_v2"]) == (1.392, 1.569, 2.073)
-    assert (r["calm_air_minimum"], r["nose_into_wind"], r["beam_wind_design"]) == (0.430, 0.776, 1.669)
 
 
 def test_figures_smoke(tmp_path):

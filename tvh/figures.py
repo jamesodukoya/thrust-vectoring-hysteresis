@@ -13,9 +13,12 @@ import numpy as np  # noqa: E402
 from matplotlib.animation import FuncAnimation, PillowWriter  # noqa: E402
 
 from .model import GKParams, eta_v, simulate, sweep  # noqa: E402
+from .investigation_animation import save_investigation_animation  # noqa: E402
+from .test_stand_figure import save_test_stand_figure  # noqa: E402
+from .validation_figure import save_validation_figure  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
-PATH = [0, 80, 40, 70, 10]  # the same sweep as the thesis minor-loop figure
+PATH = [0, 80, 40, 70, 10]  # Synthetic input for the separate state-model illustration.
 BLUE, ORANGE, INK, BAND = "#1f6fb4", "#e8742a", "#222222", "#f3e2c3"
 
 
@@ -43,7 +46,7 @@ def minor_loops_png(out: Path):
     _decorate(a, b)
     a.plot(theta, eta, color=INK, lw=2, label="path 0→80→40→70→10°")
     a.legend(loc="center right", fontsize=8, frameon=False)
-    a.set_title("Same angle, two answers (illustrative model)")
+    a.set_title("Synthetic state model, not bench data")
     b.plot(t, theta, color=INK, lw=1.6, label="θ(t)")
     b.plot(t, 100 * x, color=BLUE, lw=1.6, ls="--", label="x(t) × 100  (1 = attached)")
     b.legend(fontsize=8, frameon=False, loc="lower right")
@@ -59,7 +62,7 @@ def loop_gif(out: Path, frames: int = 120):
     fig, (a, b) = plt.subplots(1, 2, figsize=(9, 3.6))
     _decorate(a, b)
     b.set(xlim=(0, t[-1]), ylim=(-5, 105))
-    a.set_title("Flap sweep: the jet remembers", fontsize=11)
+    a.set_title("Illustrative state model, not bench data", fontsize=11)
     b.set_title("θ(t) and attachment state x(t)", fontsize=11)
     (trace,) = a.plot([], [], color=INK, lw=2)
     (dot,) = a.plot([], [], "o", ms=9)
@@ -82,33 +85,27 @@ def loop_gif(out: Path, frames: int = 120):
     plt.close(fig)
 
 
-def hover_yaw_png(out: Path):
-    d = json.loads((ROOT / "data" / "hover_yaw.json").read_text())
-    conds = list(d["conditions"].values())
-    series = [("motors_only_floor", "motors only", "#c9d2dc"),
-              ("flight_design", "hysteresis-aware allocator", BLUE),
-              ("after_bench_v2", "after bench v2 (more states)", "#7fb3e0")]
-    fig, ax = plt.subplots(figsize=(7.5, 4.2))
-    w, xs = 0.26, np.arange(len(conds))
-    for j, (key, label, color) in enumerate(series):
-        vals = [c[key] for c in conds]
-        bars = ax.bar(xs + (j - 1) * w, vals, w, color=color, label=label)
-        ax.bar_label(bars, fmt="%.2f", fontsize=8, padding=2)
-    req = d["requirements"]
-    for key, label, ls in [("beam_wind_design", "beam-wind requirement", "-"),
-                           ("nose_into_wind", "nose-into-wind requirement", "--"),
-                           ("calm_air_minimum", "calm-air minimum", ":")]:
-        ax.axhline(req[key], color=INK, lw=1.2, ls=ls)
-        ax.text(len(conds) - 0.45, req[key] + 0.03, label, fontsize=8, ha="right")
-    ax.set_xticks(xs, [c["label"] for c in conds])
-    ax.set_ylabel("deliverable hover yaw (N·m)")
-    ax.set_title("Hover yaw authority, thesis simulation results")
-    ax.legend(fontsize=8, frameon=False, loc="upper left")
-    ax.set_ylim(0, 2.4)
-    ax.spines[["top", "right"]].set_visible(False)
-    fig.tight_layout()
-    fig.savefig(out, dpi=150)
-    plt.close(fig)
+def draw_uncertainty_comparison(axis, uncertainty: dict) -> None:
+    quantities = ["thrust_constant", "thrust_prediction"]
+    percentages = [100 * uncertainty[quantity]["expanded"] for quantity in quantities]
+    bars = axis.bar(["Fitted constant", "Thrust prediction"], percentages, color=[BLUE, ORANGE])
+    axis.bar_label(bars, fmt="%.2f%%", padding=3, fontsize=9)
+    axis.set(ylabel="Expanded relative uncertainty (%)", ylim=(0, 7))
+    axis.set_title("Prediction includes model mismatch")
+
+
+def characterization_png(output_path: Path) -> None:
+    summary_path = ROOT / "data" / "characterization_summary.json"
+    summary = json.loads(summary_path.read_text())
+    figure, uncertainty_axis = plt.subplots(figsize=(8, 4.8))
+    draw_uncertainty_comparison(uncertainty_axis, summary["uncertainty"])
+    uncertainty_axis.spines[["top", "right"]].set_visible(False)
+    uncertainty_axis.grid(axis="y", alpha=0.2)
+    uncertainty_axis.set_axisbelow(True)
+    figure.text(0.5, 0.035, "Coverage factor 2; unverified absolute gain excluded.", ha="center", fontsize=9)
+    figure.tight_layout(rect=(0, 0.06, 1, 1))
+    figure.savefig(output_path, dpi=150)
+    plt.close(figure)
 
 
 def main(outdir: str | None = None):
@@ -116,8 +113,12 @@ def main(outdir: str | None = None):
     out.mkdir(parents=True, exist_ok=True)
     minor_loops_png(out / "demo_minor_loops.png")
     loop_gif(out / "hysteresis_loop.gif")
-    hover_yaw_png(out / "hover_yaw.png")
-    return [out / n for n in ("demo_minor_loops.png", "hysteresis_loop.gif", "hover_yaw.png")]
+    characterization_png(out / "characterization_results.png")
+    paths = [out / name for name in ("demo_minor_loops.png", "hysteresis_loop.gif", "characterization_results.png")]
+    paths.append(save_validation_figure(out / "force_validation.png"))
+    paths.append(save_test_stand_figure(out / "test_stand.png"))
+    paths.extend(save_investigation_animation(out))
+    return paths
 
 
 if __name__ == "__main__":

@@ -1,0 +1,119 @@
+{
+  "checked_date": "2026-10-15",
+  "scope": "Published aggregate results from thesis Chapter 4; private measurements and analysis code are not included.",
+  "campaign": {
+    "sessions": {
+      "v1": {
+        "rows": 53543,
+        "n_dwells": 180
+      },
+      "S1": {
+        "rows": 73067,
+        "n_dwells": 485
+      },
+      "S1b": {
+        "rows": 75400,
+        "n_dwells": 209
+      },
+      "S2": {
+        "rows": 139391,
+        "n_dwells": 428
+      },
+      "S3": {
+        "rows": 90190,
+        "n_dwells": 340
+      }
+    },
+    "retained_log_rows": 431591,
+    "segmented_dwells": 1642,
+    "count_limit": "Log rows include repeated sensor values. Neither row nor dwell counts establish statistically independent samples."
+  },
+  "map_validation": {
+    "S2_to_S3": {
+      "n": 313,
+      "rmse_fx_N": 0.16082559250628134,
+      "rmse_fv_N": 0.1640355996059912
+    },
+    "S3_to_S2": {
+      "n": 349,
+      "rmse_fx_N": 0.1835514056187019,
+      "rmse_fv_N": 0.20267702585258213
+    }
+  },
+  "map_validation_conditions": "The map is fitted on one session and tested on the other, using measured flap position, rotor speed and session-specific horizontal force scale correction. This is not a calibration-free transfer test or an absolute accuracy guarantee.",
+  "uncertainty": {
+    "thrust_constant": {
+      "components": {
+        "A_stat": 0.005808666241088887,
+        "B_resolution": 0.001291302751543444,
+        "B_zero": 0.0033740052683025813,
+        "B_rpm_res": 1.6791367362035376e-05
+      },
+      "combined": 0.006840486809947142,
+      "expanded": 0.013680973619894284,
+      "vs_scale_step": 12.44023101712189
+    },
+    "thrust_prediction": {
+      "components": {
+        "k_T": 0.006840486809947142,
+        "model_form": 0.027236890706736957
+      },
+      "combined": 0.028082743369688704,
+      "expanded": 0.05616548673937741
+    },
+    "coverage": "Expanded uncertainty uses a coverage factor of 2, approximately 95% under the stated assumptions.",
+    "unquantified": [
+      "Absolute force-sensor gain: no known-force check has been performed.",
+      "Absolute rotor-speed, voltage and current scale accuracy.",
+      "Moment-origin location and lever-arm tolerance in moment-derived forces."
+    ],
+    "limit": "These are partial budgets, not certified absolute accuracy. Map uncertainty also omits speed dependence and assumes independent dwells."
+  },
+  "force_moment_check": {
+    "thrust_from_moments_over_Fx_range": [
+      0.9615999452648945,
+      0.9904684192231649
+    ],
+    "moment_agreement_within_pct": 3.840005473510555,
+    "limit": "Force and moment channels share one sensor. Agreement checks consistency, not independent absolute calibration."
+  },
+  "rotor_step_response": {
+    "up": {
+      "n_steps": 2,
+      "Td_ms": 71.42433159163191,
+      "tau_ms": 48.05751907562576
+    },
+    "down": {
+      "n_steps": 2,
+      "Td_ms": 27.460682573990347,
+      "tau_ms": 45.21762338375503
+    }
+  },
+  "rotor_step_response_limit": "Two steps per directional median; no independent dynamic validation.",
+  "source_files": {
+    "ch4_datasets.json": {
+      "path": "calculations/thesis_pipeline/results/ch4/ch4_datasets.json",
+      "sha256": "c7a1479aab4e0ff01fb7d391c7d53e29dc375c56ed04388b27b58fbf5d28b988"
+    },
+    "ch4_aero_map.json": {
+      "path": "calculations/thesis_pipeline/results/ch4/ch4_aero_map.json",
+      "sha256": "bb45bbe4ba4c2c0c6ca1d9abbb20b5131d7ea82c92b7eaa53abb018b1667957c"
+    },
+    "ch4_uncertainty.json": {
+      "path": "calculations/thesis_pipeline/results/ch4/ch4_uncertainty.json",
+      "sha256": "74e57812b95e472b406aa721e30f12a128cbf9279737e9c1c694a7167c4290b7"
+    },
+    "ch4_motor.json": {
+      "path": "calculations/thesis_pipeline/results/ch4/ch4_motor.json",
+      "sha256": "3c1827242ae14c6646da3b70dde669ff0efe0ff7281ab56167ada8878f4f9631"
+    },
+    "ch4_dynamics.json": {
+      "path": "calculations/thesis_pipeline/results/ch4/ch4_dynamics.json",
+      "sha256": "b34f3456bccf6327881a5e1178d4b45975788f2c40ef75df57be67a7e4a1bb33"
+    },
+    "ch4_wrench.json": {
+      "path": "calculations/thesis_pipeline/results/ch4/ch4_wrench.json",
+      "sha256": "4909a5337d75c2713184825468bdf40e949bdc279db7fc8bc987005880bc0885"
+    }
+  }
+}
